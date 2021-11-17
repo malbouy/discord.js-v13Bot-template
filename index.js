@@ -35,7 +35,6 @@ client.on("ready", async () => {
   const slashCommands = await globPromise(
     `${process.cwd()}/slashCommands/*.js`
   );
-  const arrayofslashCommands = [];
 
   const arrayOfSlashCommands = [];
   slashCommands.map((value) => {
@@ -46,7 +45,7 @@ client.on("ready", async () => {
   });
   
   client.guilds.cache.forEach(async (g) => {
-    await client.guilds.cache.get(g.id).commands.set(arrayofslashCommands);
+    await client.guilds.cache.get(g.id).commands.set(arrayofSlashCommands);
   });
 });
 
